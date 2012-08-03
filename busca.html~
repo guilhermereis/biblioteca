@@ -18,30 +18,22 @@
 </a>   
 <div class="nav-collapse">  
 <ul class="nav">  
-<li class="active"><a>Home</a></li>  
-<li><a href="busca.html">Busca</a></li>  
+<li><a href="inicial.html">Home</a></li>  
 <li><a href="emprestimos.html">Empréstimos</a></li>  
+<li class="active"><a>Busca</a></li>  
 <li><a href="sobre.html">Sobre</a></li>  
 </ul>  
 </div><!--/.nav-collapse -->  
 </div>  
 </div>  
 </div>  
-
 <div style="padding: 100px 0 0 250px;">
 
 <!-- Conteudo -->
-<h1>Minha primeira página CSS</h1>
+<h1>Busca</h1>
 
-<p>Isto aqui eh um esboco inicial do site.
 
-<p>Nao sei porque nao ta dando pra colocar acentos.
 
-<p>Tentei mudar o estilo do titulo ali em cima
-
-<!-- Date e assine sua página, isto é educado! -->
-<address>Construida em 1 de agosto de 2012<br>
-  por mim mesmo.</address>
 
 </body>
 </html>
