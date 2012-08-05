@@ -19,8 +19,8 @@
 <div class="nav-collapse">  
 <ul class="nav">  
 <li><a href="inicial.html">Home</a></li>  
-<li><a href="emprestimos.html">Empréstimos</a></li>  
 <li class="active"><a>Busca</a></li>  
+<li><a href="emprestimos.html">Empréstimos</a></li>  
 <li><a href="sobre.html">Sobre</a></li>  
 </ul>  
 </div><!--/.nav-collapse -->  
@@ -29,10 +29,69 @@
 </div>  
 <div style="padding: 100px 0 0 250px;">
 
+
+
+
+
+<script type="text/javascript" language="javascript">     
+function showText() {
+document.getElementById('textblock_div').style.display='inline';
+}     
+</script>
+
 <!-- Conteudo -->
-<h1>Busca</h1>
+<p>
+<font size="16" color="#990000" face="Georgia, Arial, Garamond" >
+Busca
+</font>
+</p>
+<form name="search_cat_bar" method="get">
+ <table width="550" border="1" cellpadding="5">
+   <tr>
+     <td>
+       <input type="hidden" name="dff_view" value="grid">
+       Busca:<input type="text" name="dff_keyword" size="30" maxlength="50"> em 
+       <select name="dff_cat1num" size="1">
+         <option value="-1">Todas as categorias
+         <option value="-2">--------------
+         <option value="101"> Romance
+	 <option value="299"> Drama
+         <option value="193"> Ficção
+       </select>
+     </td>
+   </tr>
+ </table>
+</form>
+<input type="submit" value="Buscar" onClick="showText()">
 
 
+
+
+
+<div id="textblock_div" style="display:none" >
+<br />
+<br />
+<br />
+<table border="1">
+<tr>
+<td>Título</td>
+<td>Autor</td>
+<td>Situação</td>
+</tr>
+<tr>
+<td>The Lord of The Rings</td>
+<td>J.R.R. Tolkien</td>
+<td>Locado</td>
+</tr>
+<tr>
+<td>The Seventh Tower</td>
+<td>Garth Nix</td>
+<td>Locado</td>
+</tr>
+</table>
+
+
+</div>
 
 
 </body>
