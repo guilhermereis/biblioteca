@@ -1,61 +1,253 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta charset="utf-8">	
-  <title>Minha primeira p√°gina CSS</title>
-  <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+<title>Simple JQuery Modal Window from Queness</title>
+<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href="meucss.css">
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.pack.js"></script>
+<script>
 
+$(document).ready(function() {	
+
+	//select as ancoras cujo atributo name=modal
+	$('a[name=modal]').click(function(e) {
+		//Cancela o comportamento de link
+		e.preventDefault();
+		
+		
+		var id = $(this).attr('href');
+	
+		//Altura e largura da tela
+		var maskHeight = $(document).height();
+		var maskWidth = $(window).width();
+	
+		//seta a altura e largura da mask pra ocupar a tela toda
+		$('#mask').css({'width':maskWidth,'height':maskHeight});
+		
+		//efeitos	
+		$('#mask').fadeIn(1000);	
+		$('#mask').fadeTo("slow",0.8);	
+	
+		
+		var winH = $(window).height();
+		var winW = $(window).width();
+              
+		//seta a janela popup no centro
+		$(id).css('top',  winH/2-$(id).height()/2);
+		$(id).css('left', winW/2-$(id).width()/2);
+	
+		$(id).fadeIn(2000); 
+	
+	});
+	
+	//se clicar no close
+	$('.window .close').click(function (e) {
+		e.preventDefault();
+		
+		$('#mask').hide();
+		$('.window').hide();
+	});		
+	
+	// se clicar na mask
+	$('#mask').click(function () {
+		$(this).hide();
+		$('.window').hide();
+	});			
+    //caso a janela seja redimensionada,redefine o tamanho e a posiÁao da mascara e do popup
+	$(window).resize(function () {
+	 
+ 		var box = $('#boxes .window');
+ 
+        var maskHeight = $(document).height();
+        var maskWidth = $(window).width();
+      
+        $('#mask').css({'width':maskWidth,'height':maskHeight});
+               
+        var winH = $(window).height();
+        var winW = $(window).width();
+
+        box.css('top',  winH/2 - box.height()/2);
+        box.css('left', winW/2 - box.width()/2);
+	 
+	});
+	
+});
+
+</script>
+<style>
+
+#mask {
+  position:absolute;
+  left:0;
+  top:0;
+  //z index muito alto significa q a mascara fica na frente de todos os elementos da pagina.
+  z-index:9000;
+  background-color:#000;
+  display:none;
+}
+  
+#boxes .window {
+  position:fixed;
+  left:0;
+  top:0;
+  width:440px;
+  height:200px;
+  display:none;
+  z-index:9999;
+  padding:20px;
+}
+
+#boxes #dialog {
+  width:375px; 
+  height:203px;
+  padding:10px;
+  background-color:#ffffff;
+}
+
+#boxes #dialog1 {
+  width:375px; 
+  height:203px;
+  padding:10px;
+  background-color:#ffffff;
+}
+
+
+#boxes #dialog2 {
+    width:375px; 
+	height:203px;
+	padding:10px;
+	background-color:#ffffff;
+}
+
+</style>
 </head>
-
 <body>
+<div style="padding: 0 120px 0 100px;margin-top:100px;">
 <div class="navbar navbar-fixed-top">  
-<div class="navbar-inner">  
-<div class="container">  
-<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">  
-<span class="icon-bar"></span>  
-<span class="icon-bar"></span>  
-<span class="icon-bar"></span>  
-</a>   
-<div class="nav-collapse">  
-<ul class="nav">  
-<li class="active"><a>Home</a></li>  
-<li><a href="busca.html">Busca</a></li>  
-<li><a href="emprestimos.html">Empr√©stimos</a></li>  
-<li><a href="sobre.html">Sobre</a></li>  
-</ul>  
-<ul class="nav pull-right">
-<li>
-<a href="Login.html">Sair</a></li>  
-</ul> 
-</div><!--/.nav-collapse -->  
-</div>  
-</div>  
-</div>  
+				<div class="navbar-inner">  
+					<div class="container">  
+						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">  
+							<span class="icon-bar"></span>  
+							<span class="icon-bar"></span>  
+							<span class="icon-bar"></span>  
+						</a>   
+			<div class="nav-collapse">  
+				<ul class="nav">  
+					<li class="active"><a>Home</a></li>  
+					<li><a href="busca.html">Busca</a></li>  
+					<li><a href="emprestimos.html">EmprÈstimos</a></li>  
+					<li><a href="sobre.html">Sobre</a></li>  
+				</ul>  
+				<ul class="nav pull-right">
+					<li>
+					<a href="Login.html">Sair</a></li>  
+				</ul> 
+					</div><!--/.nav-collapse -->  
+					</div>  
+				</div>  
+			</div>  
+<br/><br/>
+<br/><br/>
 
-<div style="padding: 100px 370px 0 250px;">
 
-<!-- Conteudo -->
+<IMG width="100" height="100" style="float: right;" 
+			SRC="imagem1.jpg">
+			<p class="galeria" id="janelona">
+				<font size="16" color="#990000" face="Georgia, Arial, Garamond" >
+				Ol·
+				</font>
+			</p>
+			<hr width="550">
+			<p class="galeria">
+				<font size="3" color="#650000" align:center face="Georgia, Arial, Garamond" >
+				Sugestıes de livros
+				</font>
+				<span style="text-align: center; font-size: 9pt;">
+					<p class="galeria" style="float: left; margin-bottom: 15px; margin-right: 20px; width: 180px;">
+						<a href="#dialog" name="modal">
+							<img height="240" src="imagem2.jpg" style="width: 180px; margin-bottom: 5px;">
+						</a>
+						<br>
+						<a href="Link1">Caption1</a>
+					</p>
+					<p class="galeria" style="float: left; margin-bottom: 15px; margin-right: 20px; width: 180px;">
+						<a href="#dialog1" name="modal">
+							<img height="240" src="imagem3.jpg" style="width: 180px; margin-bottom: 5px;">
+						</a>
+						<br>
+						<a href="Link2">Caption2</a>
+					</p>
+					<p class="galeria" style="float: left; margin-bottom: 15px; width: 180px; margin-bottom: 5px;">
+						<a href="#dialog2" name="modal">
+							<img height="240" src="imagem4.jpg" style="width: 180px; margin-bottom: 5px;">
+						</a>
+						<br>
+						<a href="Link3">Caption3</a>
+					</p>
+				</span>
 
-<IMG width="100" height="100" style="float: right" 
- SRC="imagem1.jpg">
-<p>
-<br />
-<br />
-<br />
-<br />
-<font size="16" color="#990000" face="Georgia, Arial, Garamond" >
-Ol√°
-</font>
+
+			</p>
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+<div id="boxes">
+
+<div id="dialog" class="window">
+Janela Modal Simples | 
+<a href="#"class="close"/>Fechar</a>
+<p style="margin-top:20px;text-align:justify">
+	<img height="60" src="imagem2.jpg" style="width: 45px; margin-bottom: 5px;float:left;margin-right:10px">
+	Titulo: The Lord of the Rings <br/>
+	Autor: J.R.R Tolkien <br/><br/>
+	Resumo: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut est nulla, sit amet viverra nisl. Sed eu dolor felis. Vestibulum sit amet massa quam, in pretium quam. 
 </p>
-<hr width="550">
-<p>
-<font size="3" color="#650000" align:center face="Georgia, Arial, Garamond" >
-Sugest√µes de livros
-</font>
-<span style="text-align: center; font-size: 9pt;"><p style="float: left; margin-bottom: 15px; margin-right: 20px; width: 180px;"><a href="Link1"><img height="240" src="imagem2.jpg" style="width: 180px; margin-bottom: 5px;"></a><br><a href="Link1">Caption1</a></p><p style="float: left; margin-bottom: 15px; margin-right: 20px; width: 180px;"><a href="Link2"><img height="240" src="imagem3.jpg" style="width: 180px; margin-bottom: 5px;"></a><br><a href="Link2">Caption2</a></p><p style="float: left; margin-bottom: 15px; width: 180px; margin-bottom: 5px;"><a href="Link3"><img height="240" src="imagem4.jpg" style="width: 180px; margin-bottom: 5px;"></a><br><a href="Link3">Caption3</a></p></span>
-
-
+</div>
+  
+<!-- segundo livro -->  
+<div id="dialog1" class="window">
+Janela Modal Simples | 
+<a href="#"class="close"/>Fechar</a>
+<p style="margin-top:20px;text-align:justify">
+	<img height="60" src="imagem3.jpg" style="width: 45px; margin-bottom: 5px;float:left;margin-right:10px">
+	Titulo: The Two Towers <br/>
+	Autor: J.R.R Tolkien <br/><br/>
+	Resumo: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ut erat nunc. Aliquam eu tellus at nisi convallis volutpat quis sit amet libero. Vestibulum ut nulla turpis, quis dapibus metus.  
 </p>
+</div>
+<!-- fim -->  
+
+
+
+<!-- terceiro livro -->
+<div id="dialog2" class="window">
+Janela Modal Simples | 
+<a href="#"class="close"/>Fechar</a>
+<p style="margin-top:20px;text-align:justify">
+	<img height="60" src="imagem4.jpg" style="width: 45px; margin-bottom: 5px;float:left;margin-right:10px">
+	Titulo: The Seventh Tower <br/>
+	Autor: Garth Nix <br/><br/>
+	Resumo: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet odio nisl. Duis condimentum tincidunt erat, eu tempus neque dictum nec. 
+</p>
+</div>
+<!-- fim -->
+
+
+
+<!-- Mask que cobre a tela toda -->
+  <div id="mask"></div>
+</div>
+
+
 
 </body>
 </html>
